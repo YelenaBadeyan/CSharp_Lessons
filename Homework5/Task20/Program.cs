@@ -10,7 +10,7 @@ namespace LargestAndSmallestOfFive
             int b = 5;
             int c = 8;
             int d = 3;
-            int e = 6; 
+            int e = 6;
 
             int largest = a;
 
