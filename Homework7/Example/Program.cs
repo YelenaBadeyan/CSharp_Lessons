@@ -6,29 +6,29 @@ namespace ArrayMemoryDemo
     {
         static void Main(string[] args)
         {
+            int[] ints = { 1, 2, 2, 2, 3, 3, 4, 4, 4, 4, 4};
+            int finalStartIndex = 0;
+            int finalLength = 0;
+            int currentStartIndex = 0;
+            int currentLength = 0;
 
-            //Example 1 Creating Array from integers
-
-            int[] intArray = new int[1000000];
-
-            for (int i = 0; i < intArray.Length; i++)
+            for (int i = 0; i < ints.Length-1; i++)
             {
-                intArray[i] = i * 10; 
+                if (ints[i] == ints[i + 1]) { 
+                    currentStartIndex = i;
+                    currentLength += 1; }
+                else
+                {
+                    if(currentLength > finalLength)
+                    {
+                        finalLength = currentLength;
+                        finalStartIndex = currentStartIndex;
+                    }
+                }
             }
-
-
-            //Example 2 Creating arrag from strings
-
-            string[] stringArray = new string[1000000];
-
-            for (int i = 0; i < stringArray.Length; i++)
-            {
-                stringArray[i] = "String number " + i; 
-            }
-
-            Console.WriteLine("String array was created");
-
-            Console.ReadLine(); 
+            Console.WriteLine(finalStartIndex) ; 
+            Console.WriteLine(finalLength) ;
         }
+     
     }
 }
